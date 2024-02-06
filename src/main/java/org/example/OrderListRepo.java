@@ -17,13 +17,21 @@ public class OrderListRepo implements OrderRepo {
         this.orders = orders;
     }
 
-    public void add(Order newOrder){
+    public Order add(Order newOrder){
         orders.add(newOrder);
+        return  newOrder;
     }
-    public void remove(Order o){
-        orders.remove(o);
+
+    public void remove(String id){
+        for(Order p: orders) {
+            if (p.id().equals(id)) {
+                orders.remove(p);
+                return; //um diese Methode zu beenden
+            }
+        }
+
     }
-    public void getProduct(){
+    public void getAllProduct(){
         for(Order o: orders) {
             System.out.println(o.products()+" "+o.id());
         }

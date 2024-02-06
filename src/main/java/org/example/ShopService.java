@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ShopService {
     private ProductRepo productRepo;
@@ -27,15 +28,16 @@ public class ShopService {
         this.orderListRepos = orderListRepos;
     }
 
-    void newOrder(Order ordnerNew){
+    public Order find(String id){
             for (Product p: productRepo.getProducts()) {
-                if (ordnerNew.id().equals(p.id())) {
-                    System.out.println(p.id()+" find");
+                if (p.id().equals(id)) {
+                    System.out.println(id+" find");
                     break;
                 } else {
-                    System.out.println(p.id()+" not find");
+                    continue;
                 }
             }
-
+        return null;
     }
+
 }
